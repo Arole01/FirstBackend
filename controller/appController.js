@@ -50,7 +50,8 @@ exports.createUser = async (req,res)=>{
         firstName:firstName.trim().charAt(0).toUpperCase()+firstName.trim().slice(1),
         lastName:lastName.trim().charAt(0).toUpperCase()+lastName.trim().slice(1),
         email:email.trim().toLowerCase(),
-        password:hashpassword   
+        password:hashpassword,
+        address   
     }
 
         const user = await userModel.create(userinfo)
