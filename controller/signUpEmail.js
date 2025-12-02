@@ -75,7 +75,7 @@ exports.signUpTemplate=(otp,firstName)=>{
                 <p>Welcome to Trust Us — we’re so glad you’re here! To get started and secure your account, please use the One-Time Password (OTP).</p>
                 <p>This code will expire in 1 minutes, so be sure to enter it soon.</p>
                 <div class="button">
-                    ${otp}</a>
+                    ${otp}
                 </div>
                 <p>If you did not sign up on our platform, kindly ignore this email.</p>
                 <p>Best regards,<br>Eventiq</p>
@@ -117,7 +117,7 @@ exports.resendOtpTemplate = (newOtp, firstName) => {
                 background-color: #f4f4f4; /* Light grey background */
             }
             .header {
-                background: ##28a745;
+                background: #28a745;
                 padding: 20px;
                 text-align: center;
                 border-bottom: 1px solid #ddd;
@@ -212,7 +212,7 @@ exports.forgotPasswordTemplate = (otp, firstName) => {
                 background-color: #f4f4f4; /* Light grey background */
             }
             .header {
-                background: ##28a745;
+                background: #28a745;
                 padding: 20px;
                 text-align: center;
                 border-bottom: 1px solid #ddd;
@@ -263,7 +263,7 @@ exports.forgotPasswordTemplate = (otp, firstName) => {
                  <p>A reset password was requested on your account</p>
                 <p>Please provide the one time password (o.t.p) below to reset your password</p>
                <div class="button">
-                    ${otp}</a>
+                    ${otp}
                 </div>
                 <p>If you did not request to reset your password, kindly ignore this email.</p>
                 <p>Best regards,<br>Trust us</p>

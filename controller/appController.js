@@ -7,12 +7,6 @@ const {signUpTemplate,forgotPasswordTemplate} = require("../controller/signUpEma
 
 
 
-
-
-
-
-
-
 exports.homepage = (req,res)=>{
     try {
         res.json("Welcome to my API")
@@ -73,12 +67,12 @@ exports.createUser = async (req,res)=>{
             data:user
         })
         const emailInstance = new brevo.TransactionalEmailsApi()
-emailInstance.setApiKey(brevo.TransactionalEmailsApiApiKeys.apiKey,process.env.brevoApiKey)
+emailInstance.setApiKey(brevo.TransactionalEmailsApiApiKeys.apiKey,process.env.brevo_Api_Key)
 
 const sendEmail = new brevo.SendSmtpEmail()
 sendEmail.subject = `Verify your email`
 sendEmail.to=[{email : user.email}]
-sendEmail.sender = { name: 'Trust Us', email: 'ajosedavidayobami@gmail.com'}
+sendEmail.sender = { name: 'Trust Us', email: 'youngdee50@gmail.com'}
 
 sendEmail.htmlContent = signUpTemplate(otp,user.firstName)
 
@@ -175,12 +169,13 @@ exports.resetPassword = async (req,res)=>{
         checkEmail.save()
 
         const emailInstance = new brevo.TransactionalEmailsApi()
-        emailInstance.setApiKey(brevo.TransactionalEmailsApiApiKeys.apiKey,process.env.brevoApiKey)
+        emailInstance.setApiKey(brevo.TransactionalEmailsApiApiKeys.apiKey,process.env.brevo_Api_Key)
+        
 
         const sendEmail = new brevo.SendSmtpEmail()
         sendEmail.subject = `Reset your password`
         sendEmail.to=[{email : checkEmail.email}]
-        sendEmail.sender = { name: 'Trust Us', email: 'ajosedavidayobami@gmail.com'}
+        sendEmail.sender = { name: 'Trust Us', email: 'youngdee50@gmail.com'}
 
         sendEmail.htmlContent = forgotPasswordTemplate(Otp,checkEmail.firstName)
         await emailInstance.sendTransacEmail(sendEmail)
@@ -189,6 +184,9 @@ exports.resetPassword = async (req,res)=>{
             message:"Password reset otp sent to your email"
         })
     } catch (error) {
+        console.log("BREVO FULL ERROR:", JSON.stringify(error, null, 2));
+    console.log("BREVO BODY:", error.response?.body);
+    console.log("BREVO RAW:", error.response?.text);
         res.status(500).json({
             message:"Something went wrong",
             error:error.message
@@ -214,6 +212,7 @@ exports.resetPass = async (req,res)=>{
         checkUser.password = hashpassword
         checkUser.otp = null
         await checkUser.save()
+
 
         res.status(200).json({
             message:"Password reset successful"
