@@ -184,9 +184,7 @@ exports.resetPassword = async (req,res)=>{
             message:"Password reset otp sent to your email"
         })
     } catch (error) {
-        console.log("BREVO FULL ERROR:", JSON.stringify(error, null, 2));
-    console.log("BREVO BODY:", error.response?.body);
-    console.log("BREVO RAW:", error.response?.text);
+
         res.status(500).json({
             message:"Something went wrong",
             error:error.message
