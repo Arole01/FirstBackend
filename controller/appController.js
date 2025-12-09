@@ -94,6 +94,7 @@ exports.login = async (req,res)=>{
             return res.status(400).json({
                 message:"Email not verified"
             })
+            
         }
 
         if(!checkuser){
@@ -136,15 +137,15 @@ exports.verifyEmail = async (req,res)=>{
                 message:"user not found"
             })
         }
-        if(otp !==checkEmail.otp){
-            res.status(400).json({
+        if(otp !== checkEmail.otp){
+            return res.status(400).json({
                 message:"Otp invalid"
             })
         }
 
         checkEmail.isVerified = true
         checkEmail.save()
-        res.status(200).json({
+        return res.status(200).json({
             message:"Email successfully verified"
         })
     } catch (error) {
