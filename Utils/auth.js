@@ -51,6 +51,7 @@ exports.authorization = async (req,res,next)=>{
         if(checkUser.role !== "admin"){
             return res.status(401).json({
                 message:"You are not authorized to perform this action"
+                
             })
         }
 

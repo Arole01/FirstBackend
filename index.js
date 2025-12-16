@@ -18,7 +18,7 @@ app.use((err,req,res,next)=>{
 })
 mongoose.connect(process.env.db).then(()=>{console.log("db connection established")
     app.listen(Port,()=>{
-    console.log(`My app is running on port ${Port}`)
+    console.log(`Server is running on port ${Port}`)
 })
 }).catch((error)=>{
     console.log("Unable to connect" + error)
