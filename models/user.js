@@ -19,7 +19,6 @@ const userSchema = new mongoose.Schema({
     },
     otp: {
         type:String,
-       
     },
     isVerified: {
         type:Boolean,
@@ -28,7 +27,8 @@ const userSchema = new mongoose.Schema({
 
     role:{
         type:String,
-        default:"user"
+        default:"user",
+        enum:["user","admin","teacher"]
     }
 
 })

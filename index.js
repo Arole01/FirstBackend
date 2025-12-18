@@ -4,11 +4,13 @@ const {homepage} = require("./controller/appController")
 const express = require("express")
 const router = require("./router/appRouter")
 const productRoutes = require("./router/productRouter")
+const studentRoutes = require("./router/studentRouter")
 const app = express()
 const mongoose = require("mongoose")
 app.use(express.json())
 
 app.use(productRoutes)
+app.use(studentRoutes)
 app.use(router)     
 app.use((err,req,res,next)=>{
     if(err) {
