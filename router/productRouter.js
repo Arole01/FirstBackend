@@ -3,8 +3,9 @@ const upload = require("../Utils/multer")
 const router = require("express").Router()
 
 const {authenticate,authorization} = require("../Utils/auth")
+const { productValidator } = require("../Utils/validator")
 
-router.post("/product",authenticate,upload.single("image"), createProduct)
+router.post("/product",authenticate,upload.single("image"), productValidator, createProduct)
 router.get("/product",getAllProduct)
 
 router.get("/product/:id", getAproduct)
