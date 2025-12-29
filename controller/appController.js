@@ -9,7 +9,7 @@ const {signUpTemplate,forgotPasswordTemplate} = require("../controller/signUpEma
 
 exports.homepage = (req,res)=>{
     try {
-        res.json("Welcome to my API")
+        res.json("Welcome to Trust Us homepage")
     } catch (error) {
     }
 }
