@@ -1,4 +1,4 @@
-const { data } = require("react-router-dom")
+
 const userModel = require ("../models/user")
 const bcrypt = require("bcryptjs")
 const jwt = require("jsonwebtoken")
